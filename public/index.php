@@ -11,19 +11,20 @@ if (!$page_content) {
     ob_start();
     require_once __DIR__ . '/../includes/functions.php';
 
-    // Update visitor count
-    $total_visitors_file = __DIR__ . '/../includes/total_visitors.txt';
-    if (file_exists($total_visitors_file)) {
-        $total_visitors = (int)file_get_contents($total_visitors_file);
-        $total_visitors++;
-        file_put_contents($total_visitors_file, $total_visitors);
-    }
+    // This will be replaced with a more robust solution later
+    // // Update visitor count
+    // $total_visitors_file = __DIR__ . '/../includes/total_visitors.txt';
+    // if (file_exists($total_visitors_file)) {
+    //     $total_visitors = (int)file_get_contents($total_visitors_file);
+    //     $total_visitors++;
+    //     file_put_contents($total_visitors_file, $total_visitors);
+    // }
 
-    // For simplicity, we'll just show a random number for online users for now
-    $online_users_file = __DIR__ . '/../includes/online_users.txt';
-    if (file_exists($online_users_file)) {
-        file_put_contents($online_users_file, rand(1, 10));
-    }
+    // // For simplicity, we'll just show a random number for online users for now
+    // $online_users_file = __DIR__ . '/../includes/online_users.txt';
+    // if (file_exists($online_users_file)) {
+    //     file_put_contents($online_users_file, rand(1, 10));
+    // }
 
     // Simple router
     $urlParts = explode('/', $url);
