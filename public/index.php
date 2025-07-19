@@ -1,5 +1,6 @@
 <?php
 require_once __DIR__ . '/../includes/cache.php';
+require_once __DIR__ . '/../includes/db.php'; // Ensure $pdo is available
 
 $url = isset($_GET['url']) ? rtrim($_GET['url'], '/') : 'home';
 $url = filter_var($url, FILTER_SANITIZE_URL);
@@ -8,7 +9,6 @@ $page_content = $cache->get($url);
 
 if (!$page_content) {
     ob_start();
-    require_once __DIR__ . '/../includes/db.php';
     require_once __DIR__ . '/../includes/functions.php';
 
     // Update visitor count
