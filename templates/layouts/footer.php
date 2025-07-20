@@ -1,10 +1,10 @@
 </main>
     <footer>
         <div>
-            <span>المتواجدون الآن: <?php echo file_get_contents(__DIR__ . '/../../includes/online_users.txt'); ?></span> |
-            <span>عدد الزوار الكلي: <?php echo file_get_contents(__DIR__ . '/../../includes/total_visitors.txt'); ?></span>
+            <span>المتواجدون الآن: <?php echo file_exists(__DIR__ . '/../../includes/online_users.txt') ? file_get_contents(__DIR__ . '/../../includes/online_users.txt') : '0'; ?></span> |
+            <span>عدد الزوار الكلي: <?php echo file_exists(__DIR__ . '/../../includes/total_visitors.txt') ? file_get_contents(__DIR__ . '/../../includes/total_visitors.txt') : '0'; ?></span>
         </div>
-        <p>&copy; <?php echo date('Y'); ?> <?php echo SITE_NAME; ?>. جميع الحقوق محفوظة.</p>
+        <p>&copy; <?php echo date('Y'); ?> <?php echo isset($settings['site_name']) ? $settings['site_name'] : 'My Personal Website'; ?>. جميع الحقوق محفوظة.</p>
     </footer>
     <script src="<?php echo SITE_URL; ?>/js/main.js"></script>
     <script>
